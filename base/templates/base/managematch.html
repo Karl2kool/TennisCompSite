@@ -1,0 +1,41 @@
+{% load static %} 
+
+  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   
+    
+    <link rel="stylesheet" href=" {% static 'base/css/table.css' %} " />
+    
+  
+  </head>
+
+
+  </table>
+
+  <h1><span class="blue"></span>Matches<span class="blue"></span></h1>
+
+  <h1><a style="color: white;"href="{% url 'matchcreate' %}" >Add Week</a></h1>
+ 
+  <table class="container">
+    <tr> 
+        {% for matches in object_list %}
+      <th>Week {{matches.week}}</th>
+      
+    </tr>
+    
+    <tr>
+      <td>{{matches.match1}}</td>
+      <td>{{matches.match2}}</td>
+      <td>{{matches.match3}}</td>
+    </tr>
+    <tr>
+        <td>{{matches.match4}}</td>
+        <td>{{matches.match5}}</td>
+        <td><a style="color: white;" href="{% url 'matchupdate' matches.id %}" >Edit</a></td>
+    </tr>
+  {% endfor %}

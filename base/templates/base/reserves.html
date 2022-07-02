@@ -1,0 +1,36 @@
+{% load static %} 
+
+  
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   
+    
+    <link rel="stylesheet" href=" {% static 'base/css/table.css' %} " />
+    
+  
+  </head>
+
+
+  </table>
+
+  <h1><span class="blue"></span>RESERVES<span class="blue"></span></h1>
+ 
+  <table class="container">
+    
+  <tr> 
+    <th>Player Name</th>
+    <th>Phone Number</th>
+  </tr>
+  {% for reserve in object_list %}
+  <tr>
+    <td>{{reserve.name}}</td>
+    <td><a style="color: white" href="">{{reserve.phone}}</a></td>
+  </tr>
+{% endfor %}
+
+
+</table>

@@ -1,0 +1,36 @@
+
+  {% load static %} 
+
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+     
+      
+      <link rel="stylesheet" href=" {% static 'base/css/table.css' %} " />
+      
+    
+    </head>
+  
+  
+    </table>
+  
+    <h1><span class="blue"></span>SCOREBOARD<span class="blue"></span></h1>
+
+    <h1><a style="color: white;"href="{% url 'score-create'%}" >Add Team</a></h1>
+   
+    <table class="container">
+      <tr> 
+        <th>Team</th>
+        <th>Score</th>
+      </tr>
+      {% for scoreboard in object_list %}
+      <tr>
+        <td>{{scoreboard.team}}</td>
+        <td>{{scoreboard.total}}</td>
+        <td ><a style="color: white;" href="{% url 'scoreupdate' scoreboard.id %}" >Update</a></td>
+      </tr>
+    {% endfor %}
