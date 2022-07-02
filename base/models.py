@@ -12,7 +12,7 @@ class Fillin(models.Model):
 class Score(models.Model):
 
     team = models.CharField(max_length=200, null=True, blank=True)
-    total = models.IntegerField(blank=True, null=True)
+    total = models.IntegerFieldllll(blank=True, null=True)
 
     def __str__(self):
         return self.team
