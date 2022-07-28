@@ -28,7 +28,7 @@
   {% for reserve in object_list %}
   <tr>
     <td>{{reserve.name}}</td>
-    <td><a style="color: white" href="">{{reserve.phone}}</a></td>
+    <td><a style="color: white" href="tel:{{reserve.phone}}">{{reserve.phone}}</a></td>
   </tr>
 {% endfor %}
 
