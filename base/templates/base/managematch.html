@@ -21,21 +21,44 @@
 
   <h1><a style="color: white;"href="{% url 'matchcreate' %}" >Add Week</a></h1>
  
-  <table class="container">
-    <tr> 
-        {% for matches in object_list %}
-      <th>Week {{matches.week}}</th>
-      
-    </tr>
-    
-    <tr>
-      <td>{{matches.match1}}</td>
-      <td>{{matches.match2}}</td>
-      <td>{{matches.match3}}</td>
-    </tr>
-    <tr>
-        <td>{{matches.match4}}</td>
-        <td>{{matches.match5}}</td>
-        <td><a style="color: white;" href="{% url 'matchupdate' matches.id %}" >Edit</a></td>
-    </tr>
-  {% endfor %}
+  {% for week in weeks %}
+  <h3>Week {{ week.number }}</h3>
+  <ul>
+    {% for match in week.match_set.all %}
+      <style>
+        table {
+          margin: 20px auto;
+          border-collapse: collapse;
+          width: 80%;
+        }
+        td, th {
+          border: 1px solid #ccc;
+          padding: 10px;
+          text-align: center;
+          width: 20%;
+        }
+      </style>
+      <table>
+        {% if forloop.first %}
+        <tr>
+          <th></th>
+          <th>Singles 1 Score</th>
+          <th>Singles 2 Score</th>
+          <th>Doubles Score</th>
+          <th>Winner</th>
+        </tr>
+        {% endif %}
+        <tr>
+          <td>{{ match.team1 }} vs {{ match.team2 }}</td>
+          <td>{{ match.singles1_score }}</td>
+          <td>{{ match.singles2_score }}</td>
+          <td>{{ match.doubles_score }}</td>
+          <td>{{ match.winner }}</td>
+        </tr>
+        <tr><td><a style="color: white;" href="{% url 'matchupdate' match.id %}" >Edit</a></td></tr>
+      </table>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+

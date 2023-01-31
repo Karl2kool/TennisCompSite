@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ManageReserve, ManageScore, Management,MatchCreate, ReserveList,MatchUpdate, ReserveUpdate, ScoreBoard, Home, Matches, CustomLoginView, Management,ManageMatches,ReserveCreate, ScoreCreate, ReserveDelete, ScoreUpdate
+from .views import ManageReserve, ManageScore, Management,MatchCreate, ReserveList,MatchUpdate, ReserveUpdate, ScoreBoard, Home, CustomLoginView, Management,ManageMatches,ReserveCreate, ScoreCreate, ReserveDelete, ScoreUpdate,Week,MatchesByWeekView
 from django.contrib.auth.views import LogoutView
 
 
@@ -11,7 +11,9 @@ urlpatterns = [
     path('', Home.as_view(), name='home'),
     path('reserves/',ReserveList.as_view(), name='reserve'),
     path('scoreboard/',ScoreBoard.as_view(), name='score'),
-    path('matches/',Matches.as_view(), name='matches'),
+   
+    path('matches/', MatchesByWeekView.as_view(), name='matches_by_week'),
+
 
     path('management/reserve',ManageReserve.as_view(), name='managereserve'),
     path('management/reserve/create', ReserveCreate.as_view(), name='reserve-create'),

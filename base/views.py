@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 # Create your views here.
-from .models import Fillin, Score, Match
+from .models import Fillin, Score, Match, Week
 from django.views.generic.base import View
 from django.views.generic import TemplateView
 from django.urls import reverse_lazy
@@ -43,14 +43,16 @@ class ScoreBoard( ListView):
     def get_queryset(self):
       return Score.objects.all().order_by('-total')
 
-class Matches( ListView):
-    model = Match
-    context_object_name = 'matches'
+
+
+class MatchesByWeekView(ListView):
+    model = Week
     template_name = 'base/matches.html'
-    
+    context_object_name = 'weeks'
+
 class ManageMatches( LoginRequiredMixin, ListView):
-    model = Match
-    context_object_name = 'matches'
+    model = Week
+    context_object_name = 'weeks'
     template_name = 'base/managematch.html'
  
 
