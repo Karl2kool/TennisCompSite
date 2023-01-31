@@ -41,7 +41,7 @@ class ScoreBoard( ListView):
     template_name = 'base/scoreboard.html'
   
     def get_queryset(self):
-      return Score.objects.all().order_by('-total')
+      return Score.objects.all().order_by('total')
 
 
 
