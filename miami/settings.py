@@ -76,7 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'miami.wsgi.application'
 
-CSRF_TRUSTED_ORIGINS = ['https://thursdaynightelite.com']
+CSRF_TRUSTED_ORIGINS = ['https://www.thursdaynightelite.com']
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
